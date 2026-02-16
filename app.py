@@ -8,8 +8,12 @@ Created on Tue Feb 10 18:46:30 2026
 from distutils.log import debug
 from fileinput import filename
 from flask import *  
+import os
+
+UPLOAD_FOLDER = 'C:/Users/Avery Booth/Downloads'
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def home():
@@ -30,13 +34,13 @@ def uploadVideo():
     
             if video.filename == '':
                 return jsonify({"error": "Empty filename"}), 400
-
-                filepath = os.path.join(home_dir, "Downloads" )
-                filepath = filepath = filepath+video.filename
-            
-                video.save(video.filename)
+    
+                
+    print("at save")
+    request.files['video'].save(os.path.join("C:/Users/Avery Booth/Downloads", request.files['video'].filename))    
+    
 
     return jsonify({"message": "Upload successful"}), 200
 
 if __name__ == '__main__':  
-    app.run(host="0.0.0.0",port=5000,debug=(True)) 
+    app.run( )
