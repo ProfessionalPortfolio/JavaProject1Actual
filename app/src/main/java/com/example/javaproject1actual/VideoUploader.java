@@ -1,6 +1,5 @@
 package com.example.javaproject1actual;
 
-import static java.sql.Types.NULL;
 
 import android.Manifest;
 import android.content.ContentValues;
@@ -8,10 +7,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.FileUtils;
+
 import android.provider.MediaStore;
-import android.view.View;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -21,36 +18,20 @@ import androidx.camera.core.ImageCapture;
 import androidx.camera.video.Recorder;
 import androidx.camera.video.Recording;
 import androidx.camera.video.VideoCapture;
-import androidx.camera.video.VideoOutput;
+
 import androidx.camera.view.PreviewView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-//import com.android.example.cameraxapp.databinding.ActivityMainBinding;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.InputStream;
-import java.nio.Buffer;
 import java.util.Dictionary;
 import java.util.Hashtable;
-import java.util.UUID;
+
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import android.Manifest;
-import android.content.ContentValues;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Bundle;
-import android.provider.MediaStore;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
+
+
 import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.Preview;
@@ -58,287 +39,98 @@ import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.video.MediaStoreOutputOptions;
 import androidx.camera.video.Quality;
 import androidx.camera.video.QualitySelector;
-import androidx.camera.video.Recorder;
-import androidx.camera.video.Recording;
-import androidx.camera.video.VideoCapture;
+
 import androidx.camera.video.VideoRecordEvent;
-import androidx.camera.view.PreviewView;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+
 
 import com.google.common.util.concurrent.ListenableFuture;
 
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+
 
 import android.widget.Button;
-import android.widget.Toast;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.camera.lifecycle.ProcessCameraProvider;
-import androidx.camera.core.Preview;
-import androidx.camera.core.CameraSelector;
+
 import android.util.Log;
-import androidx.camera.core.ImageAnalysis;
-import androidx.camera.core.ImageCaptureException;
-import androidx.camera.core.ImageProxy;
+
 
 import java.io.*;
 import java.net.*;
-import androidx.camera.video.FallbackStrategy;
-import androidx.camera.video.MediaStoreOutputOptions;
-import androidx.camera.video.Quality;
-import androidx.camera.video.QualitySelector;
-import androidx.camera.video.VideoRecordEvent;
-import androidx.core.content.PermissionChecker;
+
 import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.camera.core.AspectRatio;
-import androidx.camera.core.Camera;
-import androidx.camera.core.CameraSelector;
-import androidx.camera.core.ImageCapture;
-import androidx.camera.core.ImageCaptureException;
-import androidx.camera.core.Preview;
-import androidx.camera.lifecycle.ProcessCameraProvider;
-import androidx.camera.view.PreviewView;
-import androidx.core.content.ContextCompat;
+
 import androidx.camera.video.PendingRecording.*;
 
-import java.nio.ByteBuffer;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
 
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-
-import android.media.CamcorderProfile;
-import android.media.MediaRecorder;
-import android.os.AsyncTask;
-import android.os.Build;
-import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
-import android.view.Menu;
-import android.view.TextureView;
-import android.view.View;
-import android.widget.Button;
+
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 
-import android.os.Bundle;
+
+
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.camera.core.Camera;
-import androidx.camera.core.CameraSelector;
-import androidx.camera.core.Preview;
-import androidx.camera.lifecycle.ProcessCameraProvider;
-import androidx.camera.video.MediaStoreOutputOptions;
-import androidx.camera.video.Quality;
-import androidx.camera.video.QualitySelector;
+
 import androidx.camera.video.Recorder.Builder;
-import androidx.camera.video.Recording;
-import androidx.camera.video.VideoCapture;
-import androidx.camera.video.VideoRecordEvent;
-import androidx.camera.view.PreviewView;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+
 import androidx.camera.video.Recorder.*;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.camera.core.CameraSelector;
-import androidx.camera.core.ImageAnalysis;
-import androidx.camera.core.ImageCapture;
-import androidx.camera.core.ImageCaptureException;
-import androidx.camera.core.ImageProxy;
-import androidx.camera.core.Preview;
-//import androidx.camera.core.VideoCapture;
-import androidx.camera.lifecycle.ProcessCameraProvider;
-import androidx.camera.view.PreviewView;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
-import androidx.lifecycle.LifecycleOwner;
 
-import android.Manifest;
-import android.annotation.SuppressLint;
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Environment;
-import android.os.Handler;
-import android.provider.MediaStore;
-import android.util.Log;
-import android.util.Size;
-import android.view.Surface;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
-import android.Manifest;
-import android.content.ContentValues;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Bundle;
-import android.provider.MediaStore;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.Toast;
 
-import java.io.File;
-import java.io.IOException;
+
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.camera.core.Camera;
-import androidx.camera.core.CameraSelector;
+
 import androidx.camera.video.PendingRecording;
-import androidx.camera.core.Preview;
-import androidx.camera.lifecycle.ProcessCameraProvider;
-import androidx.camera.video.MediaStoreOutputOptions;
-import androidx.camera.video.Quality;
-import androidx.camera.video.QualitySelector;
 
 
 
-import androidx.camera.video.Recorder;
-import androidx.camera.video.Recording;
-import androidx.camera.video.VideoCapture;
-import androidx.camera.video.VideoRecordEvent;
-import androidx.camera.view.PreviewView;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.camera.core.CameraSelector;
-import androidx.camera.core.ImageAnalysis;
-import androidx.camera.core.ImageCapture;
-import androidx.camera.core.ImageCaptureException;
-import androidx.camera.core.ImageProxy;
-import androidx.camera.core.Preview;
-import androidx.camera.video.PendingRecording;
+
 
 import androidx.camera.video.VideoOutput.*;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 
-import android.net.Uri;
-import java.io.File;
-import okhttp3.MediaType;
+
+
 import okhttp3.MultipartBody;
-import okhttp3.OkHttpClient;
-import okhttp3.RequestBody;
+
 import okhttp3.RequestBody.Companion.*;
-import retrofit2.Call;
-import retrofit2.Callback;
-//import retrofit2.Response;
 
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.http.Multipart;
-import retrofit2.http.POST;
-import retrofit2.http.Part;
 
-import androidx.camera.lifecycle.ProcessCameraProvider;
-import androidx.camera.view.PreviewView;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
-import androidx.lifecycle.LifecycleOwner;
+import okhttp3.Call;
+import okhttp3.Callback;
 
-import android.Manifest;
-import android.annotation.SuppressLint;
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Environment;
-import android.os.Handler;
-import android.provider.MediaStore;
-import android.util.Log;
-import android.util.Size;
-import android.view.Surface;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
-import com.google.common.util.concurrent.ListenableFuture;
 
-import java.io.File;
-import java.net.URI;
-import java.util.Date;
-import java.util.concurrent.ExecutionException;
+
+
+
+
 import java.util.concurrent.Executor;
 
-import com.google.common.util.concurrent.ListenableFuture;
-import androidx.camera.video.MediaStoreOutputOptions;
 
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Executor;
 
-import android.Manifest;
-import android.content.ContentValues;
-import android.os.Build;
-import android.provider.MediaStore;
-import androidx.annotation.NonNull;
-import androidx.camera.core.CameraSelector;
-import androidx.camera.lifecycle.ProcessCameraProvider;
-import androidx.camera.video.MediaStoreOutputOptions;
-import androidx.camera.video.PendingRecording;
-import androidx.camera.video.Recording;
-import androidx.camera.video.VideoCapture;
 import androidx.camera.video.Recorder.*;
 import androidx.camera.video.PendingRecording.*;
-import androidx.camera.video.QualitySelector;
-import androidx.core.content.ContextCompat;
+
 import java.io.*;
 import java.util.ArrayList;
 
-import java.util.concurrent.TimeUnit;
-import android.os.Bundle;
 
-import com.google.common.util.concurrent.ListenableFuture;
-
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.net.*;
 
@@ -349,11 +141,9 @@ import java.net.*;
 public class VideoUploader extends AppCompatActivity {
 
 
-    private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
     PreviewView previewView;
 
     Button capture, bRecording;
-    private ImageCapture imageCapture;
     private VideoCapture<Recorder> videoCapture;
 
     Recording recording = null;
@@ -373,6 +163,9 @@ public class VideoUploader extends AppCompatActivity {
 
 
     int cameraFacing = CameraSelector.LENS_FACING_BACK;
+
+    private static final String TAG = "MyActivity";
+
 
 
 
@@ -474,21 +267,20 @@ public class VideoUploader extends AppCompatActivity {
 
         bRecording.setOnClickListener(view -> {
 
+
+
+
             String root = Environment.getExternalStorageDirectory().toString();
             File file = new File(root + "/Movies/"+currentfile);
 
-            String BASE_URL = "http://http://127.0.0.1:5000/upload";
+            String BASE_URL = "http://10.0.2.2:5000/upload";
 
             RequestBody videoBody = RequestBody.create(file, MediaType.parse("video/*"));
             MultipartBody.Part vFile = MultipartBody.Part.createFormData("video", file.getName(), videoBody);
 
             RequestBody requestBody = new MultipartBody.Builder()
                     .setType(MultipartBody.FORM)
-
-                    .addFormDataPart("video", file.getName(),
-                            RequestBody.create(
-                                    new File(root + "/Movies/"+currentfile),
-                                    MediaType.get("video/mp4")))
+                    .addFormDataPart("video", file.getName(), videoBody)
                     .build();
 
 
@@ -498,14 +290,38 @@ public class VideoUploader extends AppCompatActivity {
                     .post(requestBody)
                     .build();
 
-            try (Response response = client.newCall(request).execute()) {
-                if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
-                Toast.makeText(this, response.body().string(), Toast.LENGTH_SHORT).show();
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    
+                    String an = "Request failed: " + e.getMessage();
+                    Log.d(TAG, an);
 
-                System.out.println(response.body().string());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+
+                    //Toast.makeText(VideoUploader.this, an, Toast.LENGTH_SHORT).show();
+
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    if (!response.isSuccessful()) {
+
+                        Log.d(TAG, "Unexpected code: " + response);
+
+                        return;
+                    }
+                    // Process the response body
+                    String responseBody = response.body().string();
+                    System.out.println("Response: " + responseBody);
+                    file.delete();
+                }
+            });
+
+
+
+
+
+
 
             Bundle extras1= getIntent().getExtras();
             String valu1 = "";
@@ -560,7 +376,7 @@ public class VideoUploader extends AppCompatActivity {
 
             String name = dict.get(value)+"_PRACTICE_"+ attempts.get(numberLocater.get(value)) + "_Booth.mp4";
             currentfile=name;
-            long timestamp = System.currentTimeMillis();
+
             String root = Environment.getExternalStorageDirectory().toString();
             File file = new File(root + "/Movies/"+name);
             file.delete();
@@ -665,7 +481,7 @@ public class VideoUploader extends AppCompatActivity {
     }
 
     public void startCamera(int cameraFacing) {
-        int aspectRatio = aspectRatio(previewView.getWidth(), previewView.getHeight());
+
         ListenableFuture<ProcessCameraProvider> processCameraProvider = ProcessCameraProvider.getInstance(VideoUploader.this);
         processCameraProvider.addListener(() -> {
             try {
@@ -691,18 +507,9 @@ public class VideoUploader extends AppCompatActivity {
             }
         }, ContextCompat.getMainExecutor(VideoUploader.this));
     }
-    private int aspectRatio(int width, int height) {
-        double previewRatio = (double) Math.max(width, height) / Math.min(width, height);
-        if (Math.abs(previewRatio - 4.0 / 3.0) <= Math.abs(previewRatio - 16.0 / 9.0)) {
-            return AspectRatio.RATIO_4_3;
-        }
-        return AspectRatio.RATIO_16_9;
-    }
-
-    private void uploadVideo(File videoFile) throws IOException {
 
 
-    }
+
 
 
 

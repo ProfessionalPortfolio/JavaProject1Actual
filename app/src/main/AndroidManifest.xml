@@ -24,7 +24,10 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.JavaProject1Actual">
+
+
 
         <activity
             android:name=".MainActivity2"
@@ -32,6 +35,7 @@
 
         <activity
             android:name=".VideoUploader"
+
             android:exported="false" />
         <activity
             android:name=".GestureExamplePlayer"
@@ -45,6 +49,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

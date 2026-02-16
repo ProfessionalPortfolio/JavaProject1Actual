@@ -69,14 +69,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //get the spinner from the xml.
+
         Spinner dropdown = findViewById(R.id.spinner1);
-        //create a list of items for the spinner.
+
         String[] items = new String[]{"Turn on lights", "Turn off lights", "Turn on fan", "Turn off fan", "Increase fan speed", "decrease fan speed", "Set Thermostat to specified temperature", "Number 0","Number 1","Number 2","Number 3","Number 4","Number 5","Number 6","Number 7","Number 8"," Number9"} ;
-        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
-        //There are multiple variations of this, but this is the basic variant.
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
-        //set the spinners adapter to the previously created one.
+
 
         String selectedValue;
         dropdown.setAdapter(adapter);

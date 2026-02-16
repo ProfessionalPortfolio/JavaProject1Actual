@@ -36,8 +36,8 @@ public class GestureExamplePlayer extends AppCompatActivity {
         });Dictionary<String, Integer> dict = new Hashtable<>();
         dict.put("Turn on lights", R.raw.lighton);
         dict.put("Turn off lights", R.raw.lightoff);
-        dict.put("Turn on fan", R.raw.lightoff);
-        dict.put("Turn off fan", R.raw.lightoff);
+        dict.put("Turn on fan", R.raw.fanon);
+        dict.put("Turn off fan", R.raw.fanoff);
         dict.put("Increase fan speed", R.raw.fanup);
         dict.put("decrease fan speed", R.raw.fandown);
         dict.put("Set Thermostat to specified temperature", R.raw.setthermo);
